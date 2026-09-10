@@ -1,6 +1,7 @@
 import React from 'react';
 import { COMPETITIONS } from '../data/mockFootball';
 import { ChevronRight, Calendar, Percent } from 'lucide-react';
+import { CompetitionLogo } from '../components/CompetitionLogo';
 
 interface CompetitionsProps {
   onNavigate: (path: string, params?: any) => void;
@@ -34,8 +35,8 @@ export const Competitions: React.FC<CompetitionsProps> = ({ onNavigate }) => {
             >
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded bg-[#0B1624] border border-[#1A2C42] flex items-center justify-center text-xl">
-                    {comp.logo}
+                  <div className="w-10 h-10 md:w-11 md:h-11 rounded bg-[#0B1624] border border-[#1A2C42] flex items-center justify-center p-1 shrink-0">
+                    <CompetitionLogo competition={comp} size="md" />
                   </div>
                   <div>
                     <h3 className="text-sm font-bold text-[#F0F4F8] group-hover:text-[#4EA1FF] transition-colors">

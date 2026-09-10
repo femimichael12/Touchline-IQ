@@ -1,6 +1,7 @@
 import React from 'react';
 import { Match } from '../types/football';
 import { TeamLogo } from './TeamLogo';
+import { CompetitionLogo } from './CompetitionLogo';
 import { ArrowRight } from 'lucide-react';
 
 interface MatchCardProps {
@@ -19,9 +20,12 @@ export const MatchCard: React.FC<MatchCardProps> = ({ match, onViewAnalysis }) =
     >
       {/* 1. Header: Competition & Kickoff Time */}
       <div className="flex items-center justify-between text-[11px] pb-2.5 border-b border-[#1A2C42] text-[#8FA0B5]">
-        <span className="font-bold uppercase tracking-wider truncate max-w-[140px]">
-          {match.competitionName}
-        </span>
+        <div className="flex items-center gap-1.5 min-w-0 max-w-[150px]">
+          <CompetitionLogo competition={match.competitionName} size="xs" />
+          <span className="font-bold uppercase tracking-wider truncate">
+            {match.competitionName}
+          </span>
+        </div>
         <span className="font-medium text-[#8FA0B5] shrink-0 font-mono">
           {match.kickoffDate === 'Today' ? match.kickoffTime : `${match.kickoffDate} · ${match.kickoffTime}`}
         </span>

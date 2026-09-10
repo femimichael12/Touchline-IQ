@@ -10,7 +10,9 @@ export interface Team {
 export interface Competition {
   id: string;
   name: string;
-  logo: string; // Tailwind color or emoji or category
+  logo: string; // Logo identifier, URL, or local asset
+  logoUrl?: string; // Real official competition logo URL from sports data API
+  country?: string;
   season: string;
   predictionAccuracy: number;
   totalMatchesPredicted: number;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MATCHES, COMPETITIONS } from '../data/mockFootball';
 import { MatchCard } from '../components/MatchCard';
 import { TeamLogo } from '../components/TeamLogo';
+import { CompetitionLogo } from '../components/CompetitionLogo';
 import { EmptyState } from '../components/EmptyState';
 import stadiumHeroBg from '../assets/images/stadium_hero_bg_1789049795005.jpg';
 import { 
@@ -232,13 +233,14 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               <button
                 key={comp.id}
                 onClick={() => setSelectedComp(comp.id)}
-                className={`px-3 py-1.5 rounded text-xs font-semibold border whitespace-nowrap transition-colors cursor-pointer ${
+                className={`px-3 py-1.5 rounded text-xs font-semibold border whitespace-nowrap transition-colors flex items-center gap-1.5 cursor-pointer ${
                   isSelected
                     ? 'bg-[#111F31] text-[#19C37D] border-[#1E334D]'
                     : 'bg-[#0B1624] text-[#8FA0B5] border-[#162537] hover:text-[#F0F4F8] hover:border-[#1E334D]'
                 }`}
               >
-                {comp.name}
+                <CompetitionLogo competition={comp} size="xs" />
+                <span>{comp.name}</span>
               </button>
             );
           })}
@@ -295,7 +297,10 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               className="bg-[#111F31] border border-[#1E334D] hover:border-[#2B4769] p-4 rounded-md flex flex-col justify-between gap-3 cursor-pointer transition-colors group"
             >
               <div className="flex items-center justify-between text-[10px] text-[#8FA0B5] font-semibold uppercase tracking-wider">
-                <span>{item.competition}</span>
+                <div className="flex items-center gap-1.5 min-w-0 max-w-[170px]">
+                  <CompetitionLogo competition={item.competition} size="xs" />
+                  <span className="truncate">{item.competition}</span>
+                </div>
                 <span className="text-[#19C37D] font-bold">{item.confidence}%</span>
               </div>
 

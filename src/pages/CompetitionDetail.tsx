@@ -3,6 +3,7 @@ import { COMPETITIONS, MATCHES, TEAMS } from '../data/mockFootball';
 import { MatchCard } from '../components/MatchCard';
 import { EmptyState } from '../components/EmptyState';
 import { TeamBadge } from '../components/TeamBadge';
+import { CompetitionLogo } from '../components/CompetitionLogo';
 import { ChevronLeft } from 'lucide-react';
 
 interface CompetitionDetailProps {
@@ -53,8 +54,8 @@ export const CompetitionDetail: React.FC<CompetitionDetailProps> = ({ id, onBack
 
         <div className="bg-[#111F31] border border-[#1E334D] rounded-lg p-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded bg-[#0B1624] border border-[#1A2C42] flex items-center justify-center text-2xl">
-              {comp.logo}
+            <div className="w-12 h-12 rounded bg-[#0B1624] border border-[#1A2C42] flex items-center justify-center p-1.5 shrink-0">
+              <CompetitionLogo competition={comp} size="lg" />
             </div>
             <div>
               <h1 className="text-xl md:text-2xl font-bold text-[#F0F4F8] tracking-tight">{comp.name}</h1>

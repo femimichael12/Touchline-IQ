@@ -1,6 +1,7 @@
 import React from 'react';
 import { Match } from '../types/football';
 import { TeamLogo } from './TeamLogo';
+import { CompetitionLogo } from './CompetitionLogo';
 import { ArrowRight } from 'lucide-react';
 
 interface FeaturedMatchProps {
@@ -23,9 +24,12 @@ export const FeaturedMatch: React.FC<FeaturedMatchProps> = ({ match, onViewAnaly
             FEATURED MATCH
           </span>
         </div>
-        <span className="text-[11px] font-semibold text-[#8FA0B5] uppercase tracking-wider font-mono">
-          {match.competitionName}
-        </span>
+        <div className="flex items-center gap-1.5">
+          <CompetitionLogo competition={match.competitionName} size="xs" />
+          <span className="text-[11px] font-semibold text-[#8FA0B5] uppercase tracking-wider font-mono">
+            {match.competitionName}
+          </span>
+        </div>
       </div>
 
       {/* Teams Display */}

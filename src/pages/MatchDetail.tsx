@@ -1,6 +1,7 @@
 import React from 'react';
 import { Match } from '../types/football';
 import { TeamBadge } from '../components/TeamBadge';
+import { CompetitionLogo } from '../components/CompetitionLogo';
 import { ErrorState } from '../components/ErrorState';
 import { ChevronLeft, ArrowRight, Shield, Activity, BarChart2 } from 'lucide-react';
 
@@ -84,9 +85,12 @@ export const MatchDetail: React.FC<MatchDetailProps> = ({ match, onBack, onNavig
           <span>Back to Fixtures</span>
         </button>
 
-        <span className="text-[11px] font-semibold text-[#8FA0B5] uppercase tracking-wider">
-          {match.competitionName} · Match Preview
-        </span>
+        <div className="flex items-center gap-1.5">
+          <CompetitionLogo competition={match.competitionName} size="xs" />
+          <span className="text-[11px] font-semibold text-[#8FA0B5] uppercase tracking-wider">
+            {match.competitionName} · Match Preview
+          </span>
+        </div>
       </div>
 
       {/* 2. MATCH HEADER BANNER */}
@@ -100,9 +104,12 @@ export const MatchDetail: React.FC<MatchDetailProps> = ({ match, onBack, onNavig
 
           {/* Center Info: Kickoff, Competition, Venue */}
           <div className="flex flex-col items-center text-center space-y-2">
-            <span className="text-[10px] font-bold text-[#8FA0B5] uppercase tracking-widest">
-              {match.competitionName}
-            </span>
+            <div className="flex items-center gap-1.5">
+              <CompetitionLogo competition={match.competitionName} size="xs" />
+              <span className="text-[10px] font-bold text-[#8FA0B5] uppercase tracking-widest">
+                {match.competitionName}
+              </span>
+            </div>
             <div className="text-2xl md:text-3xl font-mono font-bold text-[#F0F4F8] tracking-wider bg-[#0B1624] px-5 py-1.5 rounded border border-[#1A2C42]">
               {match.kickoffTime}
             </div>
