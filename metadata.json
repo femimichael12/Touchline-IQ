@@ -1,0 +1,6 @@
+{
+  "name": "Touchline IQ",
+  "description": "Football predictions backed by real data. Statistical football analysis built from team form, historical performance, head-to-head records, and match data.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
